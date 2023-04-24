@@ -100,7 +100,36 @@ def t_error(t):
 
 #Cubo semantico
 
+#Todavia no funcionan
+############### Directorio de Procedimientos ###############
 
+def createFD():
+    #Columnas de la tabla id, type, func_name, var_table
+    #omitimos row con headers para poder usar los indices de las filas
+
+    function_table = []
+    return function_table
+
+def addFunction(id, f_type, f_name, function_table):
+    v_table = createVT()
+    record = [id, f_type, f_name, v_table]
+    function_table.append(record)
+
+    return function_table
+
+############### Tabla de Variables ###############
+
+def createVT():
+    #Columnas de la tabla id, type, func_name, var_table
+    #omitimos row con headers para poder usar los indices de las filas
+    var_table = []
+    return var_table
+
+def addRecordVT(id, v_type, v_name, section, var_table):
+    record = [id, v_type, v_name, section]
+    var_table.append(record)
+    
+    return var_table
 
 # Productions
 start = 'PROGRAMA'
@@ -309,7 +338,6 @@ elif(aux == 3):
         data = f.read()
     else:
         print("Error: input File not found or redable")
-
 
 # Give the lexer some input
 lexer.input(data)
